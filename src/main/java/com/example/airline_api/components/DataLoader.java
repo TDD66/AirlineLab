@@ -1,6 +1,7 @@
 package com.example.airline_api.components;
 
 import com.example.airline_api.models.Flight;
+import com.example.airline_api.models.Passenger;
 import com.example.airline_api.repositories.FlightRepository;
 import com.example.airline_api.repositories.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,11 @@ public class DataLoader implements ApplicationRunner {
 
         Flight flight2 = new Flight("w",1, "d", "f");
         flightRepository.save(flight2);
+
+        Passenger passenger1 = new Passenger("ASDSA", "ASDAA");
+        passengerRepository.save(passenger1);
+
+        Passenger passenger2 = new Passenger("DAWWE@", "!@£!DA");
+        passengerRepository.save(passenger2);
     }
 }

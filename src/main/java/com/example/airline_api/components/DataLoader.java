@@ -35,5 +35,7 @@ public class DataLoader implements ApplicationRunner {
 
         Passenger passenger2 = new Passenger("DAWWE@", "!@£!DA");
         passengerRepository.save(passenger2);
+
+
     }
 }

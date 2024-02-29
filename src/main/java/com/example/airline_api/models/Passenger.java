@@ -20,8 +20,7 @@ public class Passenger {
     private String email;
 
     @JsonIgnoreProperties({"passengers"})
-    @ManyToMany
-    @Column
+    @ManyToMany(mappedBy = "passengers")
     private List<Flight> flights;
 
     public Passenger(String name, String email) {

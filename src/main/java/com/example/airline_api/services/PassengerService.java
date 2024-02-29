@@ -32,10 +32,7 @@ public class PassengerService {
     }
 
     @Transactional
-    public Passenger addPassengerToFlight(PassengerDTO passengerDTO) {
-        Passenger passenger = new Passenger(passengerDTO.getName(), passengerDTO.getEmail());
-        Flight flight = flightRepository.findById(passengerDTO.getFlightId()).get();
-        passenger.addFlights(flight);
+    public Passenger savePassenger(Passenger passenger) {
         return passengerRepository.save(passenger);
     }
 }

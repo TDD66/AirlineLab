@@ -55,4 +55,8 @@ public class FlightService {
 
         return flight;
     }
+
+    public List<Flight> findFlightsByDestination(String destination) {
+        return flightRepository.findByDestination(destination);
+    }
 }

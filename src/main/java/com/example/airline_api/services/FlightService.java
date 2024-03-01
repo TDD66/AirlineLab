@@ -5,6 +5,7 @@ import com.example.airline_api.models.Passenger;
 import com.example.airline_api.models.PassengerDTO;
 import com.example.airline_api.repositories.FlightRepository;
 import com.example.airline_api.repositories.PassengerRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,7 @@ public class FlightService {
         flightRepository.deleteById(flightId);
     }
 
+    @Transactional
     public Optional<Flight> addPassenger(PassengerDTO passengerDTO, Long id) {
         Optional<Passenger> passenger = passengerRepository.findByNameAndEmail(passengerDTO.getName(),
                                                                                 passengerDTO.getEmail());
@@ -52,9 +54,7 @@ public class FlightService {
             return Optional.empty();
         }
 
-        passenger.get().addFlights(flight.get());
         flight.get().addPassenger(passenger.get());
-        passengerRepository.save(passenger.get());
         flightRepository.save(flight.get());
 
         return flight;

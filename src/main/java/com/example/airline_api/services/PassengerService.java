@@ -31,7 +31,6 @@ public class PassengerService {
         return passengerRepository.findById(id);
     }
 
-    @Transactional
     public Passenger savePassenger(Passenger passenger) {
         return passengerRepository.save(passenger);
     }

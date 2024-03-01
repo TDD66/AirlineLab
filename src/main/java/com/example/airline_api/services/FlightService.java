@@ -48,6 +48,10 @@ public class FlightService {
             return Optional.empty();
         }
 
+        if(flight.get().getPassengers().size() == flight.get().getCapacity()){
+            return Optional.empty();
+        }
+
         passenger.get().addFlights(flight.get());
         flight.get().addPassenger(passenger.get());
         passengerRepository.save(passenger.get());
